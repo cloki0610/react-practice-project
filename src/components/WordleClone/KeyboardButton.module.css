@@ -1,0 +1,20 @@
+.btn {
+  margin: 3px;
+  padding: 14px;
+  border-radius: 8px;
+  font-weight: 600;
+  background-color: lightgray;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  border: none;
+}
+
+.btn:hover {
+  background-color: #3a3a3a;
+  color: #fafafa;
+}

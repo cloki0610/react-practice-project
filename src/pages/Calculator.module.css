@@ -1,0 +1,25 @@
+.wrapper {
+  background-color: #1d1b1b;
+  margin: 30px auto;
+  padding: 15px 20px 30px 20px;
+  max-width: 640px;
+  border-radius: 15px;
+}
+
+.btn-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 5px auto;
+}
+
+.btn-wraper:nth-of-type(2) {
+  margin: 15px auto 5px auto;
+}
+
+.wrapper button {
+  border-radius: 5px;
+  min-height: 40px;
+  min-width: 80px;
+  margin: 5px 10px;
+}

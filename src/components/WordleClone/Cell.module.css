@@ -1,0 +1,22 @@
+.cell {
+  margin: 3px;
+  padding: 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  background-color: lightgray;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+.true {
+  background-color: lightgreen;
+}
+
+.good {
+  background-color: yellow;
+}
+
+.bad {
+  background-color: gray;
+}
