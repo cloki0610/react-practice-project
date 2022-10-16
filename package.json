@@ -2,7 +2,7 @@
   "name": "react-practice",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://cloki0610.github.io/react-practice-project",
+  "homepage": "https://cloki0610.github.io/react-practice-project/",
   "type": "module",
   "scripts": {
     "dev": "vite",
