@@ -23,7 +23,8 @@ export const Bmi = () => {
     <div style={{ display: "block" }}>
       <h1>BMI calculator</h1>
       <div>
-        <span>Height:</span>
+        <span>Height</span>
+        <br />
         <input
           type="number"
           name="height"
@@ -34,7 +35,8 @@ export const Bmi = () => {
         <span>{inputValues.height} cm</span>
       </div>
       <div>
-        <span>Weight:</span>
+        <span>Weight</span>
+        <br />
         <input
           type="number"
           name="weight"

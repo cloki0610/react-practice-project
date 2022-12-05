@@ -39,7 +39,7 @@ export const Dash = () => {
             setStart(true);
           }}
         >
-          Gamr Start
+          Game Start
         </button>
       )}
     </div>

@@ -11,3 +11,7 @@
   min-width: 80px;
   margin: 0 15px;
 }
+
+.dash button:hover {
+  opacity: 0.8;
+}
