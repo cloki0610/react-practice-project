@@ -81,7 +81,7 @@ export const Counter = () => {
       {day !== 0 && month !== 0 && (
         <p>
           There are {timeLeft.days}day(s) {timeLeft.hours}hour(s){" "}
-          {timeLeft.minutes}minute(s){timeLeft.seconds}second(s) until {day}/
+          {timeLeft.minutes}minute(s) {timeLeft.seconds}second(s) until {day}/
           {month}
         </p>
       )}
