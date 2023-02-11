@@ -1,6 +1,6 @@
 import React, { KeyboardEvent, useEffect, useState } from "react";
-import { actions } from "../utils/keyboardActions";
-import { historyType, status } from "../interfaces/history";
+import { actions } from "../utils/keyboard-actions";
+import { historyType, status } from "../interfaces/WordleTypes";
 
 export const useWordle = () => {
   const [solution, setSolution] = useState<string>("");

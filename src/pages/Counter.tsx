@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react";
-
-type timeLeftType = {
-  days: number;
-  hours: number;
-  minutes: number;
-  seconds: number;
-};
+import type { timeLeftType } from "../interfaces/CounterType";
 
 export const Counter = () => {
   const [timeLeft, setTimeLeft] = useState<timeLeftType>({
@@ -53,7 +47,7 @@ export const Counter = () => {
   return (
     <div style={{ display: "block" }}>
       <h1>
-        倒數計時器
+        Time Counter
         <br />
         {day !== 0 &&
           month !== 0 &&
@@ -86,8 +80,9 @@ export const Counter = () => {
       />
       {day !== 0 && month !== 0 && (
         <p>
-          距離 {day}/{month} 還有{timeLeft.days}天 {timeLeft.hours}時{" "}
-          {timeLeft.minutes}分{timeLeft.seconds}秒
+          There are {timeLeft.days}day(s) {timeLeft.hours}hour(s){" "}
+          {timeLeft.minutes}minute(s){timeLeft.seconds}second(s) until {day}/
+          {month}
         </p>
       )}
     </div>

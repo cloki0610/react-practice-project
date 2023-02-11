@@ -1,13 +1,7 @@
-import React, { KeyboardEvent } from "react";
 import classes from "./KeyboardButton.module.css";
+import type { KeyboardButtonProps } from "../../interfaces/WordleTypes";
 
-export const KeyboardButton = ({
-  action,
-  onClick,
-}: {
-  action: string;
-  onClick: (e: React.MouseEvent<HTMLButtonElement>, action: string) => void;
-}) => {
+export const KeyboardButton = ({ action, onClick }: KeyboardButtonProps) => {
   return (
     <button className={classes.btn} onClick={(e) => onClick(e, action)}>
       {action}

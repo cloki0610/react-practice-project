@@ -3,24 +3,16 @@ import axios from "axios";
 
 import { Dropdowns } from "../components/WeatherBoard/Dropdowns";
 import { TemperatureData } from "../components/WeatherBoard/TemperatureData";
-import { tempType } from "../components/WeatherBoard/interfaces";
-
-const CITIES = [
-  { name: "Ashfield", latitude: 53.08, longitude: -1.25 },
-  { name: "London", latitude: 51.5, longitude: -0.126 },
-  { name: "Taipei", latitude: 25.105, longitude: 121.597 },
-  { name: "Hong Kong", latitude: 22.302, longitude: 114.177 },
-];
-
-type geoType = {
-  lat: number | null;
-  lon: number | null;
-};
+import type { tempType, geoType } from "../interfaces/WeatherBoardTypes";
+import CITIES from "../constants/dummy-cities";
 
 export const Dashboard = () => {
   const [temperature, setTemperature] = useState<tempType | null>(null);
-  const [city, setCity] = useState<string | null>(null);
-  const [geo, setGeo] = useState<geoType>({ lat: null, lon: null });
+  const [city, setCity] = useState<string>("Ashfield");
+  const [geo, setGeo] = useState<geoType>({
+    lat: CITIES[0].latitude,
+    lon: CITIES[0].longitude,
+  });
   const [error, setError] = useState<string | null>(null);
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setError(null);

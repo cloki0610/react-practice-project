@@ -1,18 +1,6 @@
-import React from "react";
+import type { DropdownsProps } from "../../interfaces/WeatherBoardTypes";
 
-interface ICity {
-  name: string;
-  latitude: number;
-  longitude: number;
-}
-
-export const Dropdowns = ({
-  data,
-  onChange,
-}: {
-  data: ICity[];
-  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
-}) => {
+export const Dropdowns = ({ data, onChange }: DropdownsProps) => {
   const options = data.map((each) => (
     <option value={each.name} label={each.name} key={`w-${each.name}`}>
       {each.name}

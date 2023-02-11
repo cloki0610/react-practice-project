@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+
 import { GuessArea } from "../components/WordleClone/GuessArea";
 import { KeyboardArea } from "../components/WordleClone/KeyboardArea";
 import { useWordle } from "../hooks/useWordle";
-import { DUMMY_ANSWERS } from "../utils/WordleAns";
 import classes from "./Wordle.module.css";
+import { DUMMY_ANSWERS } from "../constants/wordle-answer";
 
 export const Wordle = () => {
   const {

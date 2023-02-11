@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout";
 import { Home } from "./components/Layout/Home";
@@ -27,25 +28,74 @@ const NotFound = React.lazy(() =>
   import("./pages/NotFound").then(({ NotFound }) => ({ default: NotFound }))
 );
 
-function App() {
-  return (
-    <>
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: (
       <Suspense fallback={<div>Loading...</div>}>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="/dice-game" element={<Dash />} />
-            <Route path="/date-counter" element={<Counter />} />
-            <Route path="/bmi-calc" element={<Bmi />} />
-            <Route path="/calculator" element={<Calculator />} />
-            <Route path="/weather-board" element={<Dashboard />} />
-            <Route path="/wordle" element={<Wordle />} />
-          </Route>
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <NotFound />
       </Suspense>
-    </>
-  );
+    ),
+    children: [
+      {
+        index: true,
+        element: <Home />,
+      },
+      {
+        path: "dice-game",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Dash />
+          </Suspense>
+        ),
+      },
+      {
+        path: "date-counter",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Counter />
+          </Suspense>
+        ),
+      },
+      {
+        path: "bmi-calc",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Bmi />
+          </Suspense>
+        ),
+      },
+      {
+        path: "calculator",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Calculator />
+          </Suspense>
+        ),
+      },
+      {
+        path: "weather-board",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Dashboard />
+          </Suspense>
+        ),
+      },
+      {
+        path: "wordle",
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Wordle />
+          </Suspense>
+        ),
+      },
+    ],
+  },
+]);
+
+function App() {
+  return <RouterProvider router={router} />;
 }
 
 export default App;

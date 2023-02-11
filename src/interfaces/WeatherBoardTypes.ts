@@ -15,3 +15,21 @@ export type tempType = {
     temperature_2m: number[];
   };
 };
+
+export type geoType = {
+  lat: number | null;
+  lon: number | null;
+};
+
+type cityType = {
+  name: string;
+  latitude: number;
+  longitude: number;
+};
+
+export type TempDataProps = { data: tempType | null };
+
+export type DropdownsProps = {
+  data: cityType[];
+  onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void;
+};

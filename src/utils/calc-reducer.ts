@@ -1,6 +1,7 @@
 import { Reducer } from "react";
+import type { CalAction, CalState } from "../interfaces/CalculatorTypes";
 
-export const reducer: Reducer<{ calcProgress: string }, { type: string }> = (
+export const reducer: Reducer<CalState, CalAction> = (
   state: { calcProgress: string },
   action: { type: string }
 ) => {

@@ -1,8 +1,9 @@
 import { useReducer } from "react";
+
 import { CalButton } from "../components/Calculator/CalButton";
 import { Result } from "../components/Calculator/Result";
+import { reducer } from "../utils/calc-reducer";
 import classes from "./Calculator.module.css";
-import { reducer } from "../utils/CalcReducer";
 
 export const Calculator = () => {
   const [result, dispatch] = useReducer(reducer, { calcProgress: "0" });

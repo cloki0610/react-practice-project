@@ -1,14 +1,9 @@
-import React, { KeyboardEvent } from "react";
-import { actions } from "../../utils/keyboardActions";
 import { KeyboardButton } from "./KeyboardButton";
-
+import { actions } from "../../utils/keyboard-actions";
 import classes from "./KeyboardArea.module.css";
+import type { KeyboardAreaProps } from "../../interfaces/WordleTypes";
 
-export const KeyboardArea = ({
-  onClick,
-}: {
-  onClick: (e: React.MouseEvent<HTMLButtonElement>, action: string) => void;
-}) => {
+export const KeyboardArea = ({ onClick }: KeyboardAreaProps) => {
   return (
     <div className={classes.keyboard}>
       {actions.map((action, i) => (

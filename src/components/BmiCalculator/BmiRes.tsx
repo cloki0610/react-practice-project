@@ -1,15 +1,10 @@
 import classes from "./BmiRes.module.css";
+import type { BmiResProps } from "../../interfaces/BmiTypes";
 
-export const BmiRes = ({
-  weight,
-  height,
-}: {
-  weight: number;
-  height: number;
-}) => {
+export const BmiRes = ({ weight, height }: BmiResProps) => {
   const res: number =
     Math.floor((weight / Math.pow(height / 100, 2)) * 100) / 100;
-  const resStyle =
+  const resStyle: string =
     res < 18.5
       ? classes.under
       : res > 18.5 && res < 24

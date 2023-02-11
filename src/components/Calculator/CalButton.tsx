@@ -1,12 +1,7 @@
 import classes from "./CalButton.module.css";
+import type { CalButtonProps } from "../../interfaces/CalculatorTypes";
 
-export const CalButton = ({
-  action,
-  onClick,
-}: {
-  action: string;
-  onClick: () => void;
-}) => {
+export const CalButton = ({ action, onClick }: CalButtonProps) => {
   let btnClass = "";
 
   action.match(/\+|-|\*|\/|=/)

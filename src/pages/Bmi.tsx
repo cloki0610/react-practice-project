@@ -1,20 +1,19 @@
 import { useReducer } from "react";
 
 import { BmiRes } from "../components/BmiCalculator/BmiRes";
+import type { BmiType, InputType } from "../interfaces/BmiTypes";
 
-type StateType = {
-  [name: string]: number;
-};
+const BmiReducer = (state: BmiType, newState: InputType) => ({
+  ...state,
+  ...newState,
+});
 
 export const Bmi = () => {
-  const [inputValues, setInputValues] = useReducer(
-    (state: StateType, newState: StateType) => ({
-      ...state,
-      ...newState,
-    }),
-    { height: 0, weight: 0 }
-  );
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const [inputValues, setInputValues] = useReducer(BmiReducer, {
+    height: 0,
+    weight: 0,
+  });
+  const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setInputValues({ [name]: +value });
   };
@@ -29,7 +28,7 @@ export const Bmi = () => {
           type="number"
           name="height"
           placeholder="Enter your height"
-          onChange={handleOnChange}
+          onChange={onChangeHandler}
         />
         <br />
         <span>{inputValues.height} cm</span>
@@ -41,7 +40,7 @@ export const Bmi = () => {
           type="number"
           name="weight"
           placeholder="Enter your weight"
-          onChange={handleOnChange}
+          onChange={onChangeHandler}
         />
         <br />
         <span>{inputValues.weight} kg</span>

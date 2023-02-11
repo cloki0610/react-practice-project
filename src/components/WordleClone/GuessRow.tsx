@@ -1,7 +1,7 @@
-import { cellType } from "../../interfaces/history";
 import { Cell } from "./Cell";
+import type { GuessRowProps } from "../../interfaces/WordleTypes";
 
-export const GuessRow = ({ row }: { row: cellType[] }) => {
+export const GuessRow = ({ row }: GuessRowProps) => {
   return (
     <tr>
       {row.map((c, i) => (

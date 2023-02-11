@@ -1,6 +1,6 @@
 import { GuessRow } from "./GuessRow";
-import { cellType, historyType, status } from "../../interfaces/history";
 import classes from "./GuessArea.module.css";
+import type { cellType, GuessAreaProps } from "../../interfaces/WordleTypes";
 
 export const GuessArea = ({
   currentGuess,
@@ -8,13 +8,7 @@ export const GuessArea = ({
   turn,
   isCorrect,
   tryAgain,
-}: {
-  currentGuess: string[];
-  history: historyType[][];
-  turn: number;
-  isCorrect: boolean;
-  tryAgain: () => void;
-}) => {
+}: GuessAreaProps) => {
   let newGuess: cellType[] = currentGuess.map((c) => {
     return { char: c, status: null };
   });

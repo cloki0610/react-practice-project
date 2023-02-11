@@ -1,8 +1,11 @@
 import { v4 as uuidv4 } from "uuid";
-import { tempType } from "./interfaces";
 import classes from "./TemperatureData.module.css";
+import type {
+  tempType,
+  TempDataProps,
+} from "../../interfaces/WeatherBoardTypes";
 
-export const TemperatureData = ({ data }: { data: tempType | null }) => {
+export const TemperatureData = ({ data }: TempDataProps) => {
   const generateDataDom = (d: tempType | null) => {
     let returnDom = [];
     const timeData = d?.hourly.time;

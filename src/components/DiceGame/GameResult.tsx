@@ -1,10 +1,6 @@
-export const GameResult = ({
-  diceRes,
-  answer,
-}: {
-  diceRes: number;
-  answer: string | null;
-}) => {
+import type { GameResultProps } from "../../interfaces/DashType";
+
+export const GameResult = ({ diceRes, answer }: GameResultProps) => {
   let gameRes: string = "";
 
   if (diceRes > 3) {
