@@ -1,6 +1,5 @@
 import React, { Suspense } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout/Layout";
 import { Home } from "./components/Layout/Home";
 
@@ -81,6 +80,13 @@ const router = createBrowserRouter([
             <Dashboard />
           </Suspense>
         ),
+        loader: ({ request, params }) =>
+          import("./pages/Dashboard").then((module) =>
+            module.loader({
+              request,
+              params,
+            })
+          ),
       },
       {
         path: "wordle",

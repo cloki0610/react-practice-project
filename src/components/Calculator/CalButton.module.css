@@ -20,3 +20,8 @@
 .number {
   background-color: #c9c9c9;
 }
+
+.btn:hover,
+.btn:active {
+  opacity: 0.8;
+}
