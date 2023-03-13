@@ -1,9 +1,4 @@
-import {
-  LaptopCanvas,
-  BallCanvas,
-  PortalCubeCanvas,
-  StarsCanvas,
-} from "./canvas";
+import { BallCanvas, PortalCubeCanvas, StarsCanvas } from "./canvas";
 import Hero from "./Hero";
 import Navbar from "../Layout/Navbar";
 import About from "./About";
@@ -20,7 +15,6 @@ export {
   Experience,
   Work,
   Contact,
-  LaptopCanvas,
   BallCanvas,
   PortalCubeCanvas,
   StarsCanvas,

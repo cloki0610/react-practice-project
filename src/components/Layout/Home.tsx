@@ -11,14 +11,16 @@ import {
 
 export const Home = () => {
   return (
-    <div className="relative z-0">
+    <div>
       <Hero />
       <About />
       <Experience />
       <Tech />
       <Work />
-      <Contact />
-      <StarsCanvas />
+      <div className="relative z-0">
+        <Contact />
+        <StarsCanvas />
+      </div>
     </div>
   );
 };
