@@ -1,5 +1,4 @@
 import { GuessRow } from "./GuessRow";
-import classes from "./GuessArea.module.css";
 import type { cellType, GuessAreaProps } from "../../interfaces/WordleTypes";
 
 export const GuessArea = ({
@@ -29,15 +28,28 @@ export const GuessArea = ({
     }
   }
   return (
-    <div className={classes.guessarea}>
-      {turn >= 6 && <p className={classes.result}>Game Over! You Lose.</p>}
-      {isCorrect && <p className={classes.result}>Correct! You Win!</p>}
+    <div className="flex flex-col justify-center items-center">
+      {turn >= 6 && (
+        <div className="flex flex-col justify-center items-center text-[48px] font-bold select-none">
+          <p>GAME OVER</p>
+          <p className="text-red-500">YOU LOSE.</p>
+        </div>
+      )}
+      {isCorrect && (
+        <div className="flex flex-col justify-center items-center text-[48px] font-bold select-none">
+          <p>Correct</p>
+          <p className="text-green-500">YOU WIN</p>
+        </div>
+      )}
       {(turn >= 6 || isCorrect) && (
-        <button className={classes.retry} onClick={tryAgain}>
+        <button
+          className="bg-[#3a3a3a] mb-5 p-[14px] rounded-md font-medium hover:opacity-80 cursor-pointer"
+          onClick={tryAgain}
+        >
           Try Again
         </button>
       )}
-      <table>
+      <table className="w-full max-w-[240px] border-separate border-spacing-1">
         <tbody>
           {!isCorrect &&
             turn < 6 &&

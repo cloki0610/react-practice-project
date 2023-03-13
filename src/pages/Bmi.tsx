@@ -20,33 +20,35 @@ export const Bmi = () => {
 
   return (
     <section className="relative w-full h-screen mx-auto">
-      <div className="pt-[160px] flex flex-col justify-center items-center">
-        <h1>BMI calculator</h1>
-        <div>
-          <span>Height</span>
-          <br />
-          <input
-            type="number"
-            name="height"
-            placeholder="Enter your height"
-            onChange={onChangeHandler}
-          />
-          <br />
-          <span>{inputValues.height} cm</span>
+      <div className="pt-[120px] flex flex-col justify-center items-center">
+        <div className="bg-tertiary p-11 rounded-2xl w-[480px] flex flex-col">
+          <h1 className="text-[36px] font-bold select-none text-center">
+            BMI calculator
+          </h1>
+          <div className="mt-11 mb-5 flex flex-col justify-center items-center">
+            <label htmlFor="height" className="font-bold">
+              Height
+            </label>
+            <input
+              type="number"
+              name="height"
+              className="text-center text-[24px] rounded-md h-[48px] my-2"
+              placeholder="Enter your height"
+              onChange={onChangeHandler}
+            />
+            <label htmlFor="weight" className="font-bold">
+              Weight
+            </label>
+            <input
+              type="number"
+              name="weight"
+              className="text-center text-[24px] rounded-md h-[48px] my-2"
+              placeholder="Enter your weight"
+              onChange={onChangeHandler}
+            />
+            <BmiRes weight={inputValues.weight} height={inputValues.height} />
+          </div>
         </div>
-        <div>
-          <span>Weight</span>
-          <br />
-          <input
-            type="number"
-            name="weight"
-            placeholder="Enter your weight"
-            onChange={onChangeHandler}
-          />
-          <br />
-          <span>{inputValues.weight} kg</span>
-        </div>
-        <BmiRes weight={inputValues.weight} height={inputValues.height} />
       </div>
     </section>
   );

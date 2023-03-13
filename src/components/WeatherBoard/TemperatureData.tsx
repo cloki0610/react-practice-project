@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "uuid";
-import classes from "./TemperatureData.module.css";
 import type {
   tempType,
   TempDataProps,
@@ -14,11 +13,15 @@ export const TemperatureData = ({ data }: TempDataProps) => {
       for (let i = 0; i < timeData.length; i++) {
         returnDom.push(
           <tr key={uuidv4()}>
-            <td className={classes.time}>{timeData[i].replace("T", " ")}</td>
+            <td className="text-left px-[5px] py-[20px] border-r border-white">
+              {timeData[i].replace("T", " ")}
+            </td>
             {tempData[i] * 1 > 28 ? (
-              <td className="hot">{tempData[i]}°C</td>
+              <td className="bg-red-500 text-left px-[5px] py-[20px]">
+                {tempData[i]}°C
+              </td>
             ) : (
-              <td>{tempData[i]}°C</td>
+              <td className="text-left px-[5px] py-[20px]">{tempData[i]}°C</td>
             )}
           </tr>
         );
@@ -27,16 +30,22 @@ export const TemperatureData = ({ data }: TempDataProps) => {
     }
   };
   return (
-    <div className={classes.container}>
-      <table className={classes.table}>
-        <thead>
-          <tr>
-            <th>Time</th>
-            <th>Temperature</th>
-          </tr>
-        </thead>
-        <tbody>{generateDataDom(data)}</tbody>
-      </table>
+    <div className="flex justify-center items-center">
+      <div className=" w-[600px] h-[350px] max-w-[80%] overflow-y-scroll">
+        <table className="w-full text-left px-[5px] py-[20px]">
+          <thead>
+            <tr>
+              <th className="bg-[#5c31db] text-left px-[5px] py-[10px] select-none">
+                Time
+              </th>
+              <th className="bg-[#5c31db] text-left px-[5px] py-[10px] select-none">
+                Temperature
+              </th>
+            </tr>
+          </thead>
+          <tbody>{generateDataDom(data)}</tbody>
+        </table>
+      </div>
     </div>
   );
 };

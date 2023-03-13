@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { GuessArea } from "../components/WordleClone/GuessArea";
 import { KeyboardArea } from "../components/WordleClone/KeyboardArea";
 import { useWordle } from "../hooks/useWordle";
-import classes from "./Wordle.module.css";
 import { DUMMY_ANSWERS } from "../constants/wordle-answer";
 
 export const Wordle = () => {
@@ -13,7 +12,6 @@ export const Wordle = () => {
     turn,
     isCorrect,
     setSolution,
-    handleKeyup,
     handleClick,
     reset,
   } = useWordle();
@@ -31,22 +29,22 @@ export const Wordle = () => {
   };
 
   return (
-    <div>
-      <div>
-        <h2 className={classes.center}>Wordle Clone</h2>
+    <section className="relative w-full h-screen mx-auto">
+      <div className="pt-[120px] flex flex-col justify-center items-center">
+        <div className="bg-tertiary p-8 rounded-2xl w-[480px] flex flex-col">
+          <h1 className="text-[36px] font-bold select-none text-center">
+            Wordle Clone
+          </h1>
+          <GuessArea
+            currentGuess={currentGuess}
+            history={guessHistory}
+            turn={turn}
+            isCorrect={isCorrect}
+            tryAgain={tryAgain}
+          />
+          <KeyboardArea onClick={handleClick} />
+        </div>
       </div>
-      <div className={classes.center}>
-        <GuessArea
-          currentGuess={currentGuess}
-          history={guessHistory}
-          turn={turn}
-          isCorrect={isCorrect}
-          tryAgain={tryAgain}
-        />
-      </div>
-      <div>
-        <KeyboardArea onClick={handleClick} />
-      </div>
-    </div>
+    </section>
   );
 };

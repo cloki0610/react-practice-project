@@ -7,8 +7,13 @@ export const Dropdowns = ({ data, onChange }: DropdownsProps) => {
     </option>
   ));
   return (
-    <div>
-      <select onChange={onChange}>{options}</select>
+    <div className="flex justify-center items-center">
+      <select
+        onChange={onChange}
+        className="w-[50%] mb-3 py-2 text-[16px] rounded-md"
+      >
+        {options}
+      </select>
     </div>
   );
 };

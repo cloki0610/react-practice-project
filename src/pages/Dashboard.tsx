@@ -59,14 +59,26 @@ export const Dashboard = () => {
   }, [geo.lat, geo.lon]);
 
   return (
-    <Suspense fallback={<p style={{ textAlign: "center" }}>Loading...</p>}>
+    <Suspense fallback={<p className="text-center">Loading...</p>}>
       <Await resolve={weathers}>
-        <div>
-          <Dropdowns data={CITIES} onChange={handleChange} />
-          {error && city && <p style={{ color: "red" }}>{error}</p>}
-          <TemperatureData data={temperature} />
-          <a href="https://open-meteo.com/">Weather data by Open-Meteo.com</a>
-        </div>
+        <section className="relative w-full h-screen mx-auto">
+          <div className="pt-[120px] flex flex-col justify-center items-center">
+            <div className="bg-tertiary p-9 rounded-2xl w-[480px] flex flex-col">
+              <h1 className="text-[36px] font-bold select-none text-center">
+                Weather Board
+              </h1>
+              <Dropdowns data={CITIES} onChange={handleChange} />
+              {error && city && <p className="text-red-500">{error}</p>}
+              <TemperatureData data={temperature} />
+              <a
+                href="https://open-meteo.com/"
+                className="text-center mt-5 underline"
+              >
+                Weather data by Open-Meteo.com
+              </a>
+            </div>
+          </div>
+        </section>
       </Await>
     </Suspense>
   );
