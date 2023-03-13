@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
 import type { timeLeftType } from "../interfaces/CounterType";
+import { container } from "../utils/motion";
 
 export const Counter = () => {
   const [timeLeft, setTimeLeft] = useState<timeLeftType>({
@@ -50,7 +53,12 @@ export const Counter = () => {
   return (
     <section className="relative w-full h-screen mx-auto">
       <div className="pt-[120px] flex justify-center items-center">
-        <div className="bg-tertiary p-11 rounded-2xl w-[480px] flex flex-col">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="bg-tertiary p-11 rounded-2xl w-[480px] flex flex-col"
+        >
           <h1 className="text-[36px] font-bold select-none text-center">
             Time Counter
           </h1>
@@ -105,7 +113,7 @@ export const Counter = () => {
             }}
             value={day}
           />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

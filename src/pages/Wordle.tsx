@@ -1,8 +1,10 @@
-import { useEffect } from "react";
+import React, { useEffect } from "react";
+import { motion } from "framer-motion";
 
 import { GuessArea } from "../components/WordleClone/GuessArea";
 import { KeyboardArea } from "../components/WordleClone/KeyboardArea";
 import { useWordle } from "../hooks/useWordle";
+import { container } from "../utils/motion";
 import { DUMMY_ANSWERS } from "../constants/wordle-answer";
 
 export const Wordle = () => {
@@ -31,7 +33,12 @@ export const Wordle = () => {
   return (
     <section className="relative w-full h-screen mx-auto">
       <div className="pt-[120px] flex flex-col justify-center items-center">
-        <div className="bg-tertiary p-8 rounded-2xl w-[480px] flex flex-col">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="bg-tertiary p-8 rounded-2xl w-[480px] flex flex-col"
+        >
           <h1 className="text-[36px] font-bold select-none text-center">
             Wordle Clone
           </h1>
@@ -43,7 +50,7 @@ export const Wordle = () => {
             tryAgain={tryAgain}
           />
           <KeyboardArea onClick={handleClick} />
-        </div>
+        </motion.div>
       </div>
     </section>
   );

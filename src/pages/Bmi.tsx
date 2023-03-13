@@ -1,7 +1,9 @@
 import { useReducer } from "react";
+import { motion } from "framer-motion";
 
 import { BmiRes } from "../components/BmiCalculator/BmiRes";
 import type { BmiType, InputType } from "../interfaces/BmiTypes";
+import { container } from "../utils/motion";
 
 const BmiReducer = (state: BmiType, newState: InputType) => ({
   ...state,
@@ -21,7 +23,12 @@ export const Bmi = () => {
   return (
     <section className="relative w-full h-screen mx-auto">
       <div className="pt-[120px] flex flex-col justify-center items-center">
-        <div className="bg-tertiary p-11 rounded-2xl w-[480px] flex flex-col">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="bg-tertiary p-11 rounded-2xl w-[480px] flex flex-col"
+        >
           <h1 className="text-[36px] font-bold select-none text-center">
             BMI calculator
           </h1>
@@ -48,7 +55,7 @@ export const Bmi = () => {
             />
             <BmiRes weight={inputValues.weight} height={inputValues.height} />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

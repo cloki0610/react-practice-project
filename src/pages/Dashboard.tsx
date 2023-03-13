@@ -1,11 +1,13 @@
 import React, { useState, useEffect, Suspense } from "react";
 import { Await, defer, useLoaderData, LoaderFunction } from "react-router-dom";
 import axios from "axios";
+import { motion } from "framer-motion";
 
 import { Dropdowns } from "../components/WeatherBoard/Dropdowns";
 import { TemperatureData } from "../components/WeatherBoard/TemperatureData";
 import { loadWeathers } from "../utils/loadWeathers";
 import type { tempType, geoType } from "../interfaces/WeatherBoardTypes";
+import { container } from "../utils/motion";
 import CITIES from "../constants/dummy-cities";
 
 export const Dashboard = () => {
@@ -63,7 +65,12 @@ export const Dashboard = () => {
       <Await resolve={weathers}>
         <section className="relative w-full h-screen mx-auto">
           <div className="pt-[120px] flex flex-col justify-center items-center">
-            <div className="bg-tertiary p-9 rounded-2xl w-[480px] flex flex-col">
+            <motion.div
+              variants={container}
+              initial="hidden"
+              animate="show"
+              className="bg-tertiary p-9 rounded-2xl w-[480px] flex flex-col"
+            >
               <h1 className="text-[36px] font-bold select-none text-center">
                 Weather Board
               </h1>
@@ -76,7 +83,7 @@ export const Dashboard = () => {
               >
                 Weather data by Open-Meteo.com
               </a>
-            </div>
+            </motion.div>
           </div>
         </section>
       </Await>

@@ -1,8 +1,10 @@
 import { useReducer } from "react";
+import { motion } from "framer-motion";
 
 import { CalButton } from "../components/Calculator/CalButton";
 import { Result } from "../components/Calculator/Result";
 import { reducer } from "../utils/calc-reducer";
+import { container } from "../utils/motion";
 
 export const Calculator = () => {
   const [result, dispatch] = useReducer(reducer, { calcProgress: "0" });
@@ -10,7 +12,12 @@ export const Calculator = () => {
   return (
     <section className="relative w-full h-screen mx-auto">
       <div className="pt-[120px] flex flex-col justify-center items-center">
-        <div className="bg-tertiary p-11 rounded-2xl w-[640px] flex items-center justify-center">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="bg-tertiary p-11 rounded-2xl w-[640px] flex items-center justify-center"
+        >
           <div className="bg-[#383838] w-[360px] p-5 border-2 border-white-100 rounded-2xl">
             <Result result={result.calcProgress} />
             <div className="flex justify-center items-center mt-3 mb-3">
@@ -42,7 +49,7 @@ export const Calculator = () => {
               <CalButton action="+" onClick={() => dispatch({ type: "+" })} />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

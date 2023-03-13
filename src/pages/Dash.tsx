@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
 import { Dice } from "../components/DiceGame/Dice";
 import { GameResult } from "../components/DiceGame/GameResult";
+import { container } from "../utils/motion";
 
 export const Dash = () => {
   const [diceNum, setDiceNum] = useState<number>(1);
@@ -19,7 +22,12 @@ export const Dash = () => {
   return (
     <section className="relative w-full h-screen mx-auto">
       <div className="pt-[120px] flex flex-col justify-center items-center">
-        <div className="bg-tertiary p-5 rounded-2xl w-[360px] pb-[30px]">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="bg-tertiary p-5 rounded-2xl w-[360px] pb-[30px]"
+        >
           <h1 className="text-[36px] font-bold mb-11 text-center select-none">
             Dice Game
           </h1>
@@ -67,7 +75,7 @@ export const Dash = () => {
               </button>
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
