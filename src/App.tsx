@@ -32,7 +32,7 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     errorElement: (
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<div>Something goes wrong...</div>}>
         <NotFound />
       </Suspense>
     ),
@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       {
         path: "dice-game",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Loading Dice Game...</div>}>
             <Dash />
           </Suspense>
         ),
@@ -52,7 +52,7 @@ const router = createBrowserRouter([
       {
         path: "date-counter",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Loading Date Counter...</div>}>
             <Counter />
           </Suspense>
         ),
@@ -60,7 +60,7 @@ const router = createBrowserRouter([
       {
         path: "bmi-calc",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Loading BMI Calculator...</div>}>
             <Bmi />
           </Suspense>
         ),
@@ -68,7 +68,7 @@ const router = createBrowserRouter([
       {
         path: "calculator",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Loading Calculator...</div>}>
             <Calculator />
           </Suspense>
         ),
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
       {
         path: "weather-board",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Loading Weather Board...</div>}>
             <Dashboard />
           </Suspense>
         ),
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
       {
         path: "wordle",
         element: (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<div>Loading Wordle Clone...</div>}>
             <Wordle />
           </Suspense>
         ),

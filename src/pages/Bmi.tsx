@@ -19,7 +19,7 @@ export const Bmi = () => {
   };
 
   return (
-    <div style={{ display: "block" }}>
+    <div className="block mt-5">
       <h1>BMI calculator</h1>
       <div>
         <span>Height</span>
