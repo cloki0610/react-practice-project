@@ -16,8 +16,11 @@ export const Calculator = () => {
           variants={container}
           initial="hidden"
           animate="show"
-          className="bg-tertiary p-11 rounded-2xl w-[640px] flex items-center justify-center"
+          className="bg-tertiary p-11 rounded-2xl w-[480px] flex flex-col items-center justify-center"
         >
+          <h1 className="text-[36px] font-bold select-none text-center mb-9">
+            Simple Calculator
+          </h1>
           <div className="bg-[#383838] w-[360px] p-5 border-2 border-white-100 rounded-2xl">
             <Result result={result.calcProgress} />
             <div className="flex justify-center items-center mt-3 mb-3">
