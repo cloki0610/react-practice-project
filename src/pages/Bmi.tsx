@@ -19,33 +19,35 @@ export const Bmi = () => {
   };
 
   return (
-    <div className="block mt-5">
-      <h1>BMI calculator</h1>
-      <div>
-        <span>Height</span>
-        <br />
-        <input
-          type="number"
-          name="height"
-          placeholder="Enter your height"
-          onChange={onChangeHandler}
-        />
-        <br />
-        <span>{inputValues.height} cm</span>
+    <section className="relative w-full h-screen mx-auto">
+      <div className="pt-[160px] flex flex-col justify-center items-center">
+        <h1>BMI calculator</h1>
+        <div>
+          <span>Height</span>
+          <br />
+          <input
+            type="number"
+            name="height"
+            placeholder="Enter your height"
+            onChange={onChangeHandler}
+          />
+          <br />
+          <span>{inputValues.height} cm</span>
+        </div>
+        <div>
+          <span>Weight</span>
+          <br />
+          <input
+            type="number"
+            name="weight"
+            placeholder="Enter your weight"
+            onChange={onChangeHandler}
+          />
+          <br />
+          <span>{inputValues.weight} kg</span>
+        </div>
+        <BmiRes weight={inputValues.weight} height={inputValues.height} />
       </div>
-      <div>
-        <span>Weight</span>
-        <br />
-        <input
-          type="number"
-          name="weight"
-          placeholder="Enter your weight"
-          onChange={onChangeHandler}
-        />
-        <br />
-        <span>{inputValues.weight} kg</span>
-      </div>
-      <BmiRes weight={inputValues.weight} height={inputValues.height} />
-    </div>
+    </section>
   );
 };

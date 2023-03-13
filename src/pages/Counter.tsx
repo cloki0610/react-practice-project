@@ -7,6 +7,7 @@ export const Counter = () => {
     hours: 0,
     minutes: 0,
     seconds: 0,
+    year: new Date().getFullYear(),
   });
   const [day, setDay] = useState<number>(0);
   const [month, setMonth] = useState<number>(0);
@@ -19,6 +20,7 @@ export const Counter = () => {
     if (month >= m || (month === m && day >= d)) {
       different =
         new Date(`${m}/${d}/${year + 1}`).getTime() - new Date().getTime();
+      year += 1;
     } else {
       different =
         new Date(`${m}/${d}/${year}`).getTime() - new Date().getTime();
@@ -30,6 +32,7 @@ export const Counter = () => {
         hours: Math.floor((different / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((different / (1000 * 60)) % 60),
         seconds: Math.floor((different / 1000) % 60),
+        year,
       };
     }
 
@@ -45,46 +48,65 @@ export const Counter = () => {
   }, [timeLeft]);
 
   return (
-    <div style={{ display: "block" }}>
-      <h1>
-        Time Counter
-        <br />
-        {day !== 0 &&
-          month !== 0 &&
-          `${day}/${month}/${new Date().getFullYear()}`}
-      </h1>
-      <br />
-      <label htmlFor="month">Month: </label>
-      <input
-        type="text"
-        name="month"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          if (+e.target.value <= 12) {
-            setMonth(+e.target.value);
-          }
-        }}
-        value={month}
-      />
-      <br />
-      <br />
-      <label htmlFor="day">Day: </label>
-      <input
-        type="text"
-        name="day"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-          if (+e.target.value <= 31 && month == 2 && +e.target.value <= 29) {
-            setDay(+e.target.value);
-          }
-        }}
-        value={day}
-      />
-      {day !== 0 && month !== 0 && (
-        <p>
-          There are {timeLeft.days}day(s) {timeLeft.hours}hour(s){" "}
-          {timeLeft.minutes}minute(s) {timeLeft.seconds}second(s) until {day}/
-          {month}
-        </p>
-      )}
-    </div>
+    <section className="relative w-full h-screen mx-auto">
+      <div className="pt-[120px] flex justify-center items-center">
+        <div className="bg-tertiary p-11 rounded-2xl w-[480px] flex flex-col">
+          <h1 className="text-[36px] font-bold select-none text-center">
+            Time Counter
+          </h1>
+          <h1 className="text-[36px] font-bold select-none text-center">
+            {day !== 0 && month !== 0 && `${day}/${month}/${timeLeft.year}`}
+          </h1>
+          {day !== 0 && month !== 0 && (
+            <p className="text-center text-[16px] rounded-md mb-11">
+              {timeLeft.days} day(s) {timeLeft.hours} hour(s) {timeLeft.minutes}{" "}
+              minute(s) {timeLeft.seconds} second(s)
+            </p>
+          )}
+          <label htmlFor="month" className="font-bold">
+            MONTH
+          </label>
+          <input
+            type="text"
+            name="month"
+            className="text-center text-[24px] rounded-md h-[48px] my-2"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              if (+e.target.value <= 12) {
+                setMonth(+e.target.value);
+              }
+            }}
+            value={month}
+          />
+          <br />
+          <br />
+          <label htmlFor="day" className="font-bold">
+            DAY
+          </label>
+          <input
+            type="text"
+            name="day"
+            className="text-center text-[24px] rounded-md h-[48px] my-2"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              if (
+                (month === 2 && +e.target.value <= 29) ||
+                ((month === 2 || month === 4 || month === 6 || month === 11) &&
+                  +e.target.value <= 30) ||
+                ((month === 1 ||
+                  month === 3 ||
+                  month === 5 ||
+                  month === 7 ||
+                  month === 8 ||
+                  month === 10 ||
+                  month === 12) &&
+                  +e.target.value <= 31)
+              ) {
+                setDay(+e.target.value);
+              }
+            }}
+            value={day}
+          />
+        </div>
+      </div>
+    </section>
   );
 };

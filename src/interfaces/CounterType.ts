@@ -3,4 +3,5 @@ export type timeLeftType = {
   hours: number;
   minutes: number;
   seconds: number;
+  year: number;
 };
