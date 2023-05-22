@@ -27,7 +27,10 @@ const DropDown = ({ title, active, setActive }: DropDownType) => {
                 className="p-6 black-gradient absolute my-2 min-w-[120px] z-10 rounded-xl"
             >
                 {projectList.map((project) => (
-                    <li className="py-3 text-secondary hover:text-white">
+                    <li
+                        className="py-3 text-secondary hover:text-white"
+                        key={`dropdown-${project.name}`}
+                    >
                         <NavLink
                             to={project.url}
                             onClick={() => {
