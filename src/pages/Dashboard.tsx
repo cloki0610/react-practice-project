@@ -11,7 +11,7 @@ import { container } from "../utils/motion";
 import CITIES from "../constants/dummy-cities";
 
 export const Dashboard = () => {
-    const { weathers } = useLoaderData() as Awaited<ReturnType<typeof loader>>;
+    const { weathers } = useLoaderData() as any;
     const [temperature, setTemperature] = useState<tempType>(weathers);
     const [city, setCity] = useState<string>("Ashfield");
     const [geo, setGeo] = useState<geoType>({
