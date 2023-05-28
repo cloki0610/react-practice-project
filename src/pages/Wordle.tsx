@@ -14,6 +14,7 @@ export const Wordle = () => {
     turn,
     isCorrect,
     setSolution,
+    handleKeyup,
     handleClick,
     reset,
   } = useWordle();
@@ -49,7 +50,7 @@ export const Wordle = () => {
             isCorrect={isCorrect}
             tryAgain={tryAgain}
           />
-          <KeyboardArea onClick={handleClick} />
+          <KeyboardArea onClick={handleClick} onKeyUp={handleKeyup} />
         </motion.div>
       </div>
     </section>

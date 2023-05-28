@@ -25,6 +25,6 @@ export const ACTIONS = [
     "X",
     "Y",
     "Z",
-    "Enter",
-    "Backspace",
+    "ENTER",
+    "BACKSPACE",
 ];

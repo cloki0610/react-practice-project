@@ -33,6 +33,7 @@ export type GuessRowProps = { row: cellType[] };
 
 export type KeyboardAreaProps = {
   onClick: (e: React.MouseEvent<HTMLButtonElement>, action: string) => void;
+  onKeyUp: (e: React.KeyboardEvent<HTMLElement>, action: string) => void;
 };
 
 export type KeyboardButtonProps = {
