@@ -44,6 +44,8 @@ const Navbar = () => {
                         alt="Menu(Mobile)"
                         className="w-[28px] h-[28px] object-contain cursor-pointer"
                         onClick={() => setToggle((prevState) => !prevState)}
+                        role="button"
+                        tabIndex={0}
                     />
                     <motion.div
                         variants={navbar}

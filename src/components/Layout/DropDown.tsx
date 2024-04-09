@@ -18,6 +18,8 @@ const DropDown = ({ title, active, setActive }: DropDownType) => {
                     active === title ? "text-white" : "text-secondary"
                 } hover:text-white text-[18px] font-medium cursor-pointer`}
                 onClick={onToggle}
+                role="menu"
+                tabIndex={20}
             >
                 {title}
             </div>
