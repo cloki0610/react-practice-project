@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 
@@ -8,6 +8,7 @@ import logo from "../../assets/logo.png";
 import menu from "../../assets/menu.svg";
 import close from "../../assets/close.svg";
 import { navbar } from "../../utils/motion";
+import Backdrop from "./Backdrop";
 
 const Navbar = () => {
     const [active, setActive] = useState<string>("");
@@ -39,19 +40,35 @@ const Navbar = () => {
                 <NavLinks active={active} setActive={setActive} />
                 {/* Mobile Nav */}
                 <div className="sm:hidden flex flex-1 justify-end items-center">
-                    <img
-                        src={toggle ? close : menu}
-                        alt="Menu(Mobile)"
-                        className="w-[28px] h-[28px] object-contain cursor-pointer"
-                        onClick={() => setToggle((prevState) => !prevState)}
-                        role="button"
-                        tabIndex={0}
-                    />
+                    {!toggle && (
+                        <img
+                            src={menu}
+                            alt="MenuOpen(Mobile)"
+                            className="w-[28px] h-[28px] object-contain cursor-pointer"
+                            onClick={() => setToggle((prevState) => !prevState)}
+                            role="button"
+                            tabIndex={0}
+                        />
+                    )}
+                    {toggle && (
+                        <Backdrop
+                            onClick={() => setToggle((prevState) => !prevState)}
+                        />
+                    )}
                     <motion.div
                         variants={navbar}
                         animate={toggle ? "show" : "hidden"}
-                        className={`"flex p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+                        className="flex p-6 black-gradient absolute top-0 right-0 mx-4 my-2 min-w-[140px] h-screen z-20 rounded-xl"
                     >
+                        <img
+                            src={close}
+                            alt="MenuClose(Mobile)"
+                            className="w-[28px] h-[28px] object-contain cursor-pointer absolute top-5 right-5"
+                            onClick={() => setToggle((prevState) => !prevState)}
+                            role="button"
+                            tabIndex={1}
+                        />
+
                         <NavLinks
                             active={active}
                             setActive={setActive}
