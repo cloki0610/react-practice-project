@@ -20,9 +20,9 @@ const Hero = () => {
                     <p
                         className={`${styles.heroSubText} mt-2 text-white-100 select-none`}
                     >
-                        Develop React front-end,{" "}
+                        Build things for the web in{" "}
                         <br className="sm:block hidden" />
-                        Python back-end and cloud solution.
+                        React, Vue, TypeScript and Python.
                     </p>
                 </div>
             </div>

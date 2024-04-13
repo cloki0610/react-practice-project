@@ -32,7 +32,7 @@ const Navbar = () => {
                     />
                     <p className="text-white text-[18px] font-bold cursor-pointer flex">
                         Rocky&nbsp;
-                        <span className="sm:block hidden">| Web Developer</span>
+                        <span className="md:block hidden">| Web Developer</span>
                     </p>
                 </NavLink>
                 {/* Desktop Nav */}
