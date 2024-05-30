@@ -7,7 +7,7 @@ import { navLinks, projectList } from "../../constants/content";
 const NavLinks = ({ active, setActive, mobileToggle, mobile }: NavLinkType) => {
     const ListStyle = mobile
         ? "list-none flex justify-end items-start flex-col gap-4 overflow-scroll"
-        : "list-none hidden sm:flex flex-row gap-10 overflow-scroll";
+        : "list-none hidden sm:flex flex-row gap-10 overflow-hidden";
     const itemStyle = mobile
         ? "font-popins text-[16px]"
         : "hover:text-white text-[18px]";
