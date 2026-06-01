@@ -15,7 +15,7 @@ const DropDown = ({ title, active, setActive }: DropDownType) => {
         <li className="relative">
             <div
                 className={`${
-                    active === title ? "text-white" : "text-secondary"
+                    active === title ? "text-secondary" : "text-white"
                 } hover:text-white text-[18px] font-medium cursor-pointer`}
                 onClick={onToggle}
                 role="menu"
@@ -26,11 +26,11 @@ const DropDown = ({ title, active, setActive }: DropDownType) => {
             <motion.ul
                 variants={navbar}
                 animate={toggle ? "show" : "hidden"}
-                className="p-6 black-gradient absolute my-2 min-w-[120px] z-10 rounded-xl"
+                className="p-6 bg-primary absolute my-2 min-w-[120px] z-10 rounded-xl"
             >
                 {projectList.map((project) => (
                     <li
-                        className="py-3 text-secondary hover:text-white"
+                        className="py-3 text-white hover:text-secondary"
                         key={`dropdown-${project.name}`}
                     >
                         <NavLink

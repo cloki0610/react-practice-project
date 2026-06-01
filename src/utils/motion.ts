@@ -120,17 +120,21 @@ export const navbar = {
         display: "block",
         opacity: 1,
         transition: {
+            duration: 0.3,
             staggerChildren: 0.5,
             delayChildren: 0.5,
         },
     },
     hidden: {
-        display: "none",
         opacity: 0,
         transition: {
+            duration: 0.3,
             staggerChildren: 0.05,
             staggerDirection: -1,
             when: "afterChildren",
+        },
+        transitionEnd: {
+            display: "none",
         },
     },
 };

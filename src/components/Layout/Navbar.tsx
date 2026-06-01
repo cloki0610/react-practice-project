@@ -31,7 +31,7 @@ const Navbar = () => {
                         alt="HomePageLogo"
                         className="w-9 h-9 object-contain"
                     />
-                    <p className="text-white text-[18px] font-bold cursor-pointer flex">
+                    <p className="text-white text-[18px] font-bold cursor-pointer flex hover:text-secondary">
                         Rocky&nbsp;
                         <span className="md:block hidden">| Web Developer</span>
                     </p>
@@ -58,7 +58,7 @@ const Navbar = () => {
                     <motion.div
                         variants={navbar}
                         animate={toggle ? "show" : "hidden"}
-                        className="flex p-6 black-gradient absolute top-0 right-0 mx-4 my-2 min-w-[140px] h-screen z-20 rounded-xl"
+                        className="flex p-6 bg-primary absolute top-0 right-0 mx-4 my-2 min-w-[140px] h-screen z-20 rounded-xl"
                     >
                         <img
                             src={close}

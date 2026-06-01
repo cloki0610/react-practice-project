@@ -6,8 +6,8 @@ import { navLinks, projectList } from "../../constants/content";
 
 const NavLinks = ({ active, setActive, mobileToggle, mobile }: NavLinkType) => {
     const ListStyle = mobile
-        ? "list-none flex justify-end items-start flex-col gap-4 overflow-scroll"
-        : "list-none hidden sm:flex flex-row gap-10 overflow-hidden";
+        ? "list-none flex justify-end items-start flex-col gap-4"
+        : "list-none hidden sm:flex flex-row gap-10";
     const itemStyle = mobile
         ? "font-popins text-[16px]"
         : "hover:text-white text-[18px]";
@@ -20,8 +20,8 @@ const NavLinks = ({ active, setActive, mobileToggle, mobile }: NavLinkType) => {
                             key={link.id}
                             className={`${
                                 active === link.title
-                                    ? "text-white"
-                                    : "text-secondary"
+                                    ? "text-secondary"
+                                    : "text-white"
                             } ${itemStyle} font-medium cursor-pointer`}
                             onClick={() => {
                                 setActive(link.title);
@@ -35,10 +35,10 @@ const NavLinks = ({ active, setActive, mobileToggle, mobile }: NavLinkType) => {
                                 {projectList.map((project) => (
                                     <li
                                         key={project.name}
-                                        className={`mt-3 py-1 pl-3 text-secondary text-sm ${
+                                        className={`mt-3 py-1 pl-3 text-white text-sm ${
                                             mobile
                                                 ? "font-popins"
-                                                : "hover:text-white"
+                                                : "hover:text-secondary"
                                         }`}
                                     >
                                         <NavLink
@@ -68,8 +68,8 @@ const NavLinks = ({ active, setActive, mobileToggle, mobile }: NavLinkType) => {
                         key={link.id}
                         className={`${
                             active === link.title
-                                ? "text-white"
-                                : "text-secondary"
+                                ? "text-secondary"
+                                : "text-white"
                         } ${itemStyle} font-medium cursor-pointer`}
                         onClick={() => {
                             setActive(link.title);
